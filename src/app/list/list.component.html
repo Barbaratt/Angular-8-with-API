@@ -1,0 +1,39 @@
+
+
+<div class="container">
+  <div class="card list-user text-center">
+    <h5 class="card-header">Lista de Usuários</h5>
+    <div class="card-body">
+      <div class="table-responsive">
+      <table class="table">
+          <thead>
+            <tr class="text-center">
+              <th scope="col">ID</th>
+              <th scope="col">CPF</th>
+              <th scope="col">RG</th>
+              <th scope="col">Nome</th>
+              <th scope="col">E-mail</th>
+              <th scope="col">Status</th>
+              <th scope="col">Data de Nascimento</th>
+              <th scope="col">Ações:</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let user of users">
+              <td style="font-weight: bold; font-size: 1.3em; vertical-align: middle;">{{user.id}}</td>
+              <td style="vertical-align: middle;">{{user.cpf}}</td>
+              <td style="vertical-align: middle;">{{user.rg}}</td>
+              <td style="vertical-align: middle;">{{user.nome}}</td>
+              <td style="vertical-align: middle;">{{user.email}}</td>
+              <td style="vertical-align: middle;">{{user.status}}</td>
+              <td style="vertical-align: middle;">{{user.data_de_nascimento}}</td>
+              <td>
+                  <button type="button" class= "btn btn-secondary btn-md" (click)="editUser(user)">Editar</button>
+                  <button type="button" class= "btn btn-danger btn-md-1" (click)="deleteUser(user)">Deletar</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div> <!-- table responsive -->
+  </div>
+</div>

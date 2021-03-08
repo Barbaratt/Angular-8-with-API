@@ -1,0 +1,223 @@
+Utilize Typescript versão 4.1.5
+
+Caso tenha um versão mais atualizada, e esteja usando o VS CODE, procure na barra inferior
+o Typescript e modifique a versão, para evitar conflitos.
+
+
+No App Module, não esqueça de importar seus componentes e declarar eles no
+
+Declarations: [
+]
+
+
+Não utilize o App Component para criar suas aplicações e componentes
+
+Use ng g c nome-da-sua-aplicacao
+
+divide-se em <app-nome></app-nome> em seu HTML (App Component)
+
+ <label for="color">CPF</label>
+                <input type="text" [(ngModel)]="car.color" id="color" name="color" #color="ngModel" required class="form-control" [ngClass]="{ 'is-invalid': f.submitted && color.invalid }" placeholder="Digite seu CPF">
+                <div *ngIf="f.submitted && color.invalid" class="invalid-feedback">
+                    <div *ngIf="color.errors.required">CPF é obrigatório</div>
+                </div>
+
+ <label for="model">Nome</label>
+                <input type="text" [(ngModel)]="car.model" id="model" name="model" #model="ngModel" required class="form-control" [ngClass]="{ 'is-invalid': f.submitted && model.invalid }" placeholder="Digite seu nome">
+                <div *ngIf="f.submitted && model.invalid" class="invalid-feedback">
+                    <div *ngIf="model.errors.required">O nome é obrigatório</div>
+                </div>
+            </div>
+
+
+
+
+
+
+Para redirecionar uma outra pagina, no app.routing.module.ts, use: 
+
+Criação de rotas:
+
+ng new routing-app --routing
+
+
+import { Routes, RouterModule } from '@angular/router';
+import { MainComponent } from './main/main.component';
+
+import { } from '';
+
+const routes: Routes = [
+{ path: '', loadChildren: ' '; }
+{ path: 'perfil', loadChildren: './perfil/perfil.module#PerfilModule'; }
+
+]
+
+OU ISSO
+
+const routes: Routes = [
+ { path: 'blog/:id', component: BlogComponent } (1)
+];
+
+@NgModule({
+ imports: [RouterModule.forRoot(routes, {useHash: true})],
+ exports: [RouterModule]
+})
+
+
+
+
+COMO ADICIONAR IMAGENS
+
+NO COMPONENTE DE SUA APLICAÇÃO
+
+export class AppComponent {
+  myimg = 'https://images.unsplash.com/photo-1519058497187-7167f17c6daf';}
+
+}
+
+E NO HTML
+
+<div>
+    <img [src]="myimg" height="250px" /></div>
+
+
+
+
+
+NAVEGAR PELO O BOTÃO DE REDIRECIONAMENTO
+
+
+import { Router } from '@angular/router';
+
+constructor(private router: Router){ }
+
+  page($myParam: string = ''): void {
+    const navigationDetails: string[] = ['/create'];
+    if($myParam.length) {
+      navigationDetails.push($myParam);
+    }
+    this.router.navigate(navigationDetails);
+  }
+
+
+ =----------OU---------
+
+  constructor(private router: Router){ }
+
+  btnClick = function() {
+    this.router.navigateByUrl('/user');
+}
+
+
+
+
+
+
+
+
+
+
+SÓ PARA ESCLARECER:
+
+EM ALGUM COMPONENTE A SER CRIADO NO TS DELE
+
+import { Component, OnInit } from '@angular/core';
+import { CarService } from './../services/car.service';
+import { Car } from './../models/car';
+import { NgIf } from '@angular/common';
+import { NgModel } from '@angular/forms';
+
+@Component({
+  selector: 'app-update',
+  templateUrl: './update.component.html',
+  styleUrls: ['./update.component.css']
+})
+export class UpdateComponent implements OnInit {
+
+  car = {} as Car;
+  cars: Car[];
+
+  constructor(private carService: CarService) {}
+  ngOnInit() {
+    this.getCars();
+  }
+
+  // defini se um carro será criado ou atualizado
+  saveCar(form: NgIf) {
+    if (this.car.id !== undefined) {
+      return this.carService.updateCar(this.car).subscribe(() => {
+        this.cleanForm(form);
+      });
+    } else {
+      return this.carService.saveCar(this.car).subscribe(() => {
+        this.cleanForm(form);
+      });
+    }
+  }
+
+  // Chama o serviço para obtém todos os carros
+  getCars() {
+    this.carService.getCars().subscribe((cars: Car[]) => {
+      this.cars = cars;
+    });
+  }
+
+  // deleta um carro
+  deleteCar(car: Car) {
+      this.carService.deleteCar(car).subscribe(() => {
+      this.getCars();
+    });
+  }
+
+  // copia o carro para ser editado.
+  editCar(car: Car) {
+    this.car = { ...car };
+  }
+
+  // limpa o formulario
+  cleanForm(form: NgModel) {
+    this.getCars();
+    form.resetForm();
+    this.car = {} as Car;
+  }
+}
+
+
+
+
+
+
+
+
+Criação de rotas:
+
+ng new routing-app --routing
+
+No APPRoutingModule
+
+import { FirstComponent } from './first/first.component';
+import { SecondComponent } from './second/second.component';
+
+App Module
+
+import { AppRoutingModule } from './app-routing.module';
+
+imports: [
+    BrowserModule,
+    AppRoutingModule // CLI adds AppRoutingModule to the AppModule's imports array
+  ],
+
+
+Ou isso no app module
+
+import { NgModule } from '@angular/core';
+import { Routes, RouterModule } from '@angular/router'; // CLI imports router
+
+const routes: Routes = []; // sets up routes constant where you define your routes
+
+// configures NgModule imports and exports
+@NgModule({
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule]
+})
+export class AppRoutingModule { }

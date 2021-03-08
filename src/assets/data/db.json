@@ -1,0 +1,40 @@
+{
+  "users": [
+      {
+        "id": 1,
+        "cpf": 45596612236,
+        "rg": 561279965,
+        "nome": "Flávio",
+        "email": "fulano@gmail.com",
+        "status": true,
+        "data_de_nascimento": 31021960
+      },
+    {
+      "id": 2,
+      "cpf": 12536878654,
+      "rg": 245687371,
+      "nome": "Claudia",
+      "email": "fulano@gmail.com",
+      "status": true,
+      "data_de_nascimento": 20161977
+    },
+    {
+      "id": 3,
+      "cpf": 12496387533,
+      "rg": 124965726,
+      "nome": "Zelia",
+      "email": "fulano@gmail.com",
+      "status": true,
+      "data_de_nascimento": 15361993
+    },
+    {
+      "id": 4,
+      "cpf": 19758432156,
+      "rg": 126457931,
+      "nome": "Bárbara",
+      "email": "fulano@gmail.com",
+      "status": true,
+      "data_de_nascimento": 10051980
+    }
+  ]
+}

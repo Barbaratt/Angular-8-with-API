@@ -25,3 +25,12 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+## Utilize Typescript versão 4.1.5
+
+Caso tenha um versão mais atualizada, e esteja usando o VS CODE, procure na barra inferior
+o Typescript e modifique a versão, para evitar conflitos.
+
+## ABRIR JSON SERVER
+
+json-server --watch src/assets/data/db.json

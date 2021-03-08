@@ -1,0 +1,35 @@
+.container {
+  margin-top: 30px;
+}
+
+.card {
+  background-color: 	 #F2F2F2;
+}
+
+h5 {
+  background-color: hsl(200, 40%, 57%);
+  font-weight: bold;
+  font-size: 1.3em;
+}
+
+thead {
+  text-align: center;
+  font-weight: bold;
+}
+
+thead > tr > th {
+  border-top: none;
+}
+
+tbody > tr {
+  text-align: center;
+}
+
+ label {
+  text-align: center;
+  margin-bottom: 5px;
+}
+
+input {
+  background-color: #FBF7F7;
+}

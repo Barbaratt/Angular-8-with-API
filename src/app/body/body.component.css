@@ -1,0 +1,128 @@
+
+/* FONTS */
+
+@import url('https://fonts.googleapis.com/css2?family=Milonga&display=swap'); @import url('https://fonts.googleapis.com/css2?family=Lobster+Two&display=swap');
+*
+/* RESET */
+
+ {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  /* background-color: #ffe6e6; */
+}
+
+
+div {
+  margin-top: 1.2em;
+  display: flexbox;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+}
+
+p {
+  margin-bottom: 1em;;
+  color: #31323B;
+}
+
+a {
+  text-decoration: none;
+  color:  75a3a3;
+}
+
+img {
+  margin-bottom: 20px;
+}
+
+hr {
+  width:100px;
+  margin: auto;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  height: 5px;
+  background-color:#3A6073;
+}
+
+/* BOOTSTRAP */
+
+.card {
+  background-color: 	 #F2F2F2;
+}
+
+.card-img-top {
+  max-width: 150px;
+  margin-bottom: -20px;
+}
+
+.card-title {
+  font-size: larger;
+  font-size: 35px;
+  color: #e65c00;
+  font-family: 'Lobster Two', cursive, sans-serif;
+}
+
+.card-text {
+  color: #31323B;
+}
+
+.text-muted > a {
+  font-size: 12px;
+  text-decoration: none;
+  color: #31323B;
+}
+
+.text-muted > a:hover {
+  color:   rgb(145, 47, 191, 0.78);
+  font-weight: 200;
+  transition: 1s;
+}
+
+#card03 {
+  display: flex;
+  width: 500px;
+  height: 300px;
+  margin-left: 5em;
+}
+
+.subtitle {
+  font-size: 20px;
+
+}
+
+.subtitle > h1 {
+  font-size: 40px;
+  margin-bottom: 0.4em;
+}
+
+
+/* RESPONSIVE */
+
+@media screen and (max-width: 700px) {
+
+  #card03 {
+    width: 300px;
+    height: 200px;
+
+  }
+
+  .subtitle {
+    font-size: 15px;
+  }
+
+}
+
+
+@media screen and (max-width: 800px) {
+
+  #card03 {
+    width: 300px;
+    height: 300px;
+    margin-left: 2.5em;
+  }
+
+  .subtitle {
+    font-size: 18px;
+  }
+
+}

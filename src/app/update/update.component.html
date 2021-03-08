@@ -1,0 +1,73 @@
+<div class="container">
+  <div class="card add-user ">
+      <h5 class="card-header text-center">Adicionar/Atualizar Usuário</h5>
+      <div class="card-body" style="display: flex; justify-content: space-evenly;">
+          <form id="add-form" (ngSubmit)="f.form.valid && saveUser(f)" #f="ngForm" novalidate>
+            <div class="row justify-content-around">
+            <div class = "col-6">
+            <div class="form-group">
+                <label for="cpf">CPF</label>
+                <input type="text" [(ngModel)]="user.cpf" id="cpf" name="cpf" #cpf="ngModel" required class="form-control" [ngClass]="{ 'is-invalid': f.submitted && cpf.invalid }" placeholder="Digite seu CPF" data-mask="000.000.000-00" data-mask-selectonfocus="true" maxlength="11" autocomplete="off">
+                <div *ngIf="f.submitted && cpf.invalid" class="invalid-feedback">
+                    <div *ngIf="cpf.errors.required">CPF é obrigatório</div>
+                </div>
+            </div>
+          </div> <!-- col-6-->
+          <div class = "col-6">
+            <div class="form-group">
+                <label for="rg">RG</label>
+                <input type="text" [(ngModel)]="user.rg" id="rg" name="rg" #rg="ngModel" required class="form-control" [ngClass]="{ 'is-invalid': f.submitted && rg.invalid }" placeholder="Digite seu RG" data-mask="00.000.000-0" maxlength="9" autocomplete="off">
+                <div *ngIf="f.submitted && rg.invalid" class="invalid-feedback">
+                    <div *ngIf="rg.errors.required">RG é obrigatório</div>
+                </div>
+            </div>
+          </div> <!-- col 6-->
+        </div> <!-- row -->
+        <div class="row justify-content-around">
+          <div class = "col-6">
+            <div class="form-group">
+              <label for="nome">Nome</label>
+              <input type="text" [(ngModel)]="user.nome" id="nome" name="nome" #nome="ngModel" required class="form-control" [ngClass]="{ 'is-invalid': f.submitted && nome.invalid }" placeholder="Nome Completo">
+              <div *ngIf="f.submitted && nome.invalid" class="invalid-feedback">
+                  <div *ngIf="nome.errors.required">O nome é obrigatório</div>
+              </div>
+            </div>
+            </div> <!-- col-6-->
+            <div class = "col-6">
+            <div class="form-group">
+              <label for="email">E-mail</label>
+              <input type="text" [(ngModel)]="user.email" id="email" name="email" #email="ngModel" required class="form-control" [ngClass]="{ 'is-invalid': f.submitted && email.invalid }" placeholder="Digite seu E-mail">
+              <div *ngIf="f.submitted && email.invalid" class="invalid-feedback">
+                  <div *ngIf="email.errors.required">E-mail é obrigatório</div>
+              </div>
+          </div>
+        </div> <!-- col 6-->
+      </div> <!-- row -->
+      <div class="row justify-content-around">
+        <div class = "col-6">
+          <div class="form-group">
+            <label for="status">Status</label>
+            <input type="text" [(ngModel)]="user.status" id="status" name="status" #status="ngModel" required class="form-control" [ngClass]="{ 'is-invalid': f.submitted && status.invalid }" placeholder="">
+            <div *ngIf="f.submitted && status.invalid" class="invalid-feedback">
+                <div *ngIf="status.errors.required"></div>
+            </div>
+        </div>
+        </div> <!-- col-6 -->
+        <div class="col-6">
+          <div class="form-group">
+            <label for="data_de_nascimento">Data de Nascimento</label>
+            <input type="text" [(ngModel)]="user.data_de_nascimento" id="data_de_nascimento" name="data_de_nascimento" #data_de_nascimento="ngModel" required class="form-control" [ngClass]="{ 'is-invalid': f.submitted && data_de_nascimento.invalid }" placeholder="Ex.: dd/mm/aaaa" data-mask="00/00/0000" maxlength="8" autocomplete="off">
+            <div *ngIf="f.submitted && data_de_nascimento.invalid" class="invalid-feedback">
+                <div *ngIf="data_de_nascimento.errors.required">A Data de Nascimento é obrigatório</div>
+            </div>
+        </div>
+      </div> <!-- col 6-->
+    </div> <!-- row -->
+          <div class="text-center">
+            <button type="submit" class="btn btn-success btn-add-user mr-3">Salvar</button>
+            <button type="reset" class="btn btn-secondary btn-add-user" (click)="cleanForm(f)">Cancelar</button>
+          </div> <!-- button align-->
+          </form>
+      </div>
+    </div>
+</div>
